@@ -1,5 +1,4 @@
-/* Load Configurations from .env */
-require('dotenv').config();
+const config = require('config');
 
 const express = require("express");
 const bodyParser = require('body-parser');
@@ -7,8 +6,16 @@ const cookieParser = require('cookie-parser');
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 
+const SERVER_PORT = config.get('server.port');
+const SERVER_HOST = config.get('server.host');
+
+// Import Application Routes
+const homepage = require('./routes/homepage');
 
 var app = express()
+
+app.set('view engine', 'ejs'); // Use EJS Templating
+app.set('views', './views') // Define where Templates will live
 
 // custom middleware logger
 app.use(logger);
@@ -19,12 +26,10 @@ app.use(bodyParser.json()); // Add body-parser to app object
 app.use(cookieParser()); // Activate use of cookies
 
 
-app.get("/",function(request,response){
-    response.send("Hello World!")
-})
+app.get("/", homepage)
 
 app.use(errorHandler);
 
-app.listen(10000, function () {
-    console.log("Started application on port %d", 10000)
+app.listen(SERVER_PORT, SERVER_HOST, function () {
+    console.log(`Started application on ${SERVER_HOST}:${SERVER_PORT}`)
 });
