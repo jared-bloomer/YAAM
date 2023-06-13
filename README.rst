@@ -1,5 +1,5 @@
-YAAM
-====
+YAAM (YET Another Allstar Manager)
+==================================
 
 Description
 -----------
