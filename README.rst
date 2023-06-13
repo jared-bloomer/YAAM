@@ -1,4 +1,4 @@
-YAAM (YET Another Allstar Manager)
+YAAM (Yet Another Allstar Manager)
 ==================================
 
 Description
