@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-    <title><%= subject %></title>
+    <%- include('./_header'); %>
   </head>
   <body>
     <%- include('./_nav'); %>
     <div class="container mt-2">
       <header>
-        <h2>Welcome</h2>
+        <h2>Welcome <%= name %></h2>
         <p>Here is the homepage for <%= name %></p>
       </header>
       <section>
