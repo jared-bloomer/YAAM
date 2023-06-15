@@ -1,7 +1,7 @@
 YAAM (Yet Another Allstar Manager)
 ==================================
 
-.. |License: ISC| image:: https://img.shields.io/badge/License-ISC-blue.svg
+.. |License: ISC| image:: https://img.shields.io/badge/License-ISC-blue.svg?style=for-the-badge
    :target: https://opensource.org/licenses/ISC
     
 Description
