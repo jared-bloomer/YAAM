@@ -3,21 +3,35 @@
   <head>
     <%- include('./_header'); %>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <%- include('./_nav'); %>
+    <div class="container mt-2 bg-info">
+        <%= callsign_name %>, <%= callsign %><br />
+        <%= location %>, <%= grid_square %><br />
+        <a href="<%= website %>" target="_blank"><%= website %></a>
+
+    </div>
     <div class="container mt-2">
-      <header>
-        <h2>Welcome <%= name %></h2>
-        <p>Here is the homepage for <%= name %></p>
-      </header>
-      <section>
-        <h2>Here is the body</h2>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam,
-          repellendus!
-        </p>
-      </section>
-      <%- include('./_footer'); %>
+        <div class="row">
+            <div class="col-lg">
+                <header>
+                    <h2>Welcome <%= name %></h2>
+                    <p>Here is the homepage for <%= callsign_name %>, <%= callsign %></p>
+                </header>
+                <section>
+                    <h2>Here is the body</h2>
+                    <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam,
+                    repellendus!
+                    </p>
+                </section>
+            </div>
+      </div>
+      <div class="row">
+        <div class="col-lg">
+            <%- include('./_footer'); %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

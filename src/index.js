@@ -13,6 +13,7 @@ const SERVER_HOST = config.get('server.host');
 const homepage = require('./routes/homepage');
 
 var app = express()
+app.use( express.static( "public" ) );
 
 app.set('view engine', 'ejs'); // Use EJS Templating
 app.set('views', './views') // Define where Templates will live
