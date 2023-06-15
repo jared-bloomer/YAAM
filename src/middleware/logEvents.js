@@ -5,9 +5,10 @@ const fs = require('fs');
 const fsPromises = require('fs').promises;
 const path = require('path');
 
-const logEvents = async (message, logName) => {
+const logEvents = async (message, logName, req) => {
+    const ip = req.ip
     const dateTime = `${format(new Date(), 'yyyyMMdd\tHH:mm:ss')}`;
-    const logItem = `${dateTime}\t${uuid()}\t${message}\n`;
+    const logItem = `${dateTime}\t${uuid()}\t${ip}\t${message}\n`;
 
     try {
         if (!fs.existsSync(path.join(__dirname, '..', 'logs'))) {
@@ -21,7 +22,7 @@ const logEvents = async (message, logName) => {
 }
 
 const logger = (req, res, next) => {
-    logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, 'reqLog.txt');
+    logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, 'reqLog.txt', req);
     console.log(`${req.method} ${req.path}`);
     next();
 }
