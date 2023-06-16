@@ -27,3 +27,10 @@ About the project
 YAAM is written in node.js (At the time of writing this, version 18.16.0) using the Express Framework and the EJS templating system. Configuration files are stored in the `src/config` directory. 
 
 YAAM is protected under the ISC License. Please see the `LICENSE <LICENSE>`_ file for detailed information. 
+
+Dependencies
+------------
+
+Installation
+------------
+
