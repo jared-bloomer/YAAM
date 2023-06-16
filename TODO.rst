@@ -1,0 +1,12 @@
+- [ ] Add SQLite Database
+    - [ ] User Roles Table
+    - [ ] Users Table
+    - [ ] astdb table
+- [ ] Create DB Connection Middleware
+- [ ] Create passport-local middleware to authenticate from users table in Database
+- [ ] Establish persisten connection to asterisk
+- [ ] listen for all asterisk events
+- [ ] add Local URI entry to table on homepage
+- [ ] Update value in table for local URI based on events
+- [ ] write open calls to table on homepage
+- [ ] Remove call from table on homepage on hangup event
