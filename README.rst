@@ -34,3 +34,15 @@ Dependencies
 Installation
 ------------
 
+Features
+--------
+
+How to Contribute
+-----------------
+
+Testing
+-------
+
+Questions and Support
+---------------------
+
