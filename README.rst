@@ -31,6 +31,13 @@ YAAM is protected under the ISC License. Please see the `LICENSE <LICENSE>`_ fil
 Dependencies
 ------------
 
+* Node Version 18.16.0 or later
+
+Node Packages
+_____________
+
+
+
 Installation
 ------------
 
