@@ -51,6 +51,7 @@ ____________________________________________________________________
 * uuid
 * passport
 * passport-local
+* serve-favicon
 
 
 Installation

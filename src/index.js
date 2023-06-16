@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
+const favicon = require('serve-favicon');
 
 const SERVER_PORT = config.get('server.port');
 const SERVER_HOST = config.get('server.host');
@@ -17,6 +18,7 @@ app.use( express.static( "public" ) );
 
 app.set('view engine', 'ejs'); // Use EJS Templating
 app.set('views', './views') // Define where Templates will live
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
 // custom middleware logger
 app.use(logger);
