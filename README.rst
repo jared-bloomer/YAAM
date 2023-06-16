@@ -60,6 +60,9 @@ Features
 How to Contribute
 -----------------
 
+Make a fork of this repository. Make your changes in your fork and open a Pull Request to this repo for review. 
+
+
 Testing
 -------
 
