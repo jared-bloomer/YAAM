@@ -49,6 +49,8 @@ ____________________________________________________________________
 * nodemon
 * path
 * uuid
+* passport
+* passport-local
 
 
 Installation
