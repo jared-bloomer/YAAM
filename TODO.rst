@@ -2,6 +2,7 @@
     - [ ] User Roles Table
     - [ ] Users Table
     - [ ] astdb table
+    - [ ] Add default admin user to users table
 - [ ] Create DB Connection Middleware
 - [ ] Create passport-local middleware to authenticate from users table in Database
 - [ ] Establish persisten connection to asterisk
