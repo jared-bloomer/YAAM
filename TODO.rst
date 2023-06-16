@@ -11,3 +11,13 @@
 - [ ] Update value in table for local URI based on events
 - [ ] write open calls to table on homepage
 - [ ] Remove call from table on homepage on hangup event
+- [ ] Add favicon
+- [ ] Add jquery to live update resources
+- [ ] Create User Login Page
+- [ ] Create user session on Login (see passport-local)
+- [ ] Create Admin page
+    - [ ] Create User Management Page
+    - [ ] Create update astdb tool
+    - [ ] Manage favorites
+    - [ ] View Live Logs Tool
+    - [ ] 
