@@ -52,6 +52,7 @@ ____________________________________________________________________
 * passport
 * passport-local
 * serve-favicon
+* path
 
 
 Installation

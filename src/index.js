@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const favicon = require('serve-favicon');
+const path = require('path');
 
 const SERVER_PORT = config.get('server.port');
 const SERVER_HOST = config.get('server.host');
