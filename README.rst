@@ -36,6 +36,19 @@ Dependencies
 Node Packages
 _____________
 
+* asterisk-manager
+* body-parser
+* config
+* cookie-parser
+* date-fns
+* dotenv
+* ejs
+* express
+* fs
+* js-yaml
+* nodemon
+* path
+* uuid
 
 
 Installation
