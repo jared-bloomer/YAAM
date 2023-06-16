@@ -20,4 +20,4 @@
     - [ ] Create update astdb tool
     - [ ] Manage favorites
     - [ ] View Live Logs Tool
-    - [ ] 
+    - [ ] Create Linking Groups (predefined links to connect to at the same time)
