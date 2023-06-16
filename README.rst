@@ -33,8 +33,8 @@ Dependencies
 
 * Node Version 18.16.0 or later
 
-Node Packages
-_____________
+Node Packages (see `package.json <src/package.json>`_ for more info)
+____________________________________________________________________
 
 * asterisk-manager
 * body-parser
