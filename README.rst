@@ -53,6 +53,7 @@ ____________________________________________________________________
 * passport-local
 * serve-favicon
 * path
+* knex
 
 
 Installation
