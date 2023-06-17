@@ -29,6 +29,7 @@ exports.up = function(knex) {
         table.string('description').notNullable().index();
         table.string('location').notNullable().index();
       })
+      
 };
 
 /**

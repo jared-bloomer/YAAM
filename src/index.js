@@ -7,6 +7,7 @@ const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const favicon = require('serve-favicon');
 const path = require('path');
+const db = require('./controllers/db');
 
 const SERVER_PORT = config.get('server.port');
 const SERVER_HOST = config.get('server.host');
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json()); // Add body-parser to app object
 app.use(cookieParser()); // Activate use of cookies
 
+db.getAllUsers();
 
 app.get("/", homepage)
 
