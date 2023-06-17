@@ -1,3 +1,4 @@
+environment: development
 node:
   callsign: 'KJ4KPY'
   website: 'https://www.henrycountyars.org'
