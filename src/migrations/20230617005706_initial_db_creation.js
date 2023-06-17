@@ -36,5 +36,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('users');
+    return knex.schema.dropTableIfExists('roles').dropTableIfExists('users').dropTableIfExists('astdb');
 };
