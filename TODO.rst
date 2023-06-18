@@ -1,9 +1,9 @@
-- [ ] Add SQLite Database
-    - [ ] User Roles Table
-    - [ ] Users Table
-    - [ ] astdb table
-    - [ ] Add default admin user to users table
-- [ ] Create DB Connection Middleware
+- [X] Add SQLite Database
+    - [X] User Roles Table
+    - [X] Users Table
+    - [X] astdb table
+    - [X] Add default admin user to users table
+- [X] Create DB Connection Middleware
 - [ ] Create passport-local middleware to authenticate from users table in Database
 - [ ] Establish persistent connection to asterisk
 - [ ] listen for all asterisk events
@@ -21,3 +21,5 @@
     - [ ] Manage favorites
     - [ ] View Live Logs Tool
     - [ ] Create Linking Groups (predefined links to connect to at the same time)
+    - [ ] Create Button to update astdb Table in Database
+- [X] Create method to update astdb Database Table
