@@ -10,6 +10,7 @@ node:
   callsign_name: 'Henry County Amateur Radio Society' # Your name or your clubs name
   location: 'Henry County, GA' # Your location
   grid_square: 'EM73vl' # Your Gridsquare
+  type: 'public' #Set this to 'private' or 'public'
 server:
   port: 8080 # What port do you want YAAM to listen on
   host: 0.0.0.0 #What Ip Address do you way YAAM to listen on. use 0.0.0.0 for all IP addresses
