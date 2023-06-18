@@ -1,16 +1,21 @@
+# environment must be either 'development' or 'production'
 environment: development
+# It is recommended to make this as random and long as possible as it will be used for hashing passwords in the database.
+# To generate a good random string, on a Linux terminal run the following command
+# cat /dev/urandom | tr -dc '[:alpha:]' | fold -w ${1:-20} | head -n 1
+salt_secret: 'BgbUFvZWqSkkxqhklVDO' 
 node:
-  callsign: 'KJ4KPY'
-  website: 'https://www.henrycountyars.org'
-  callsign_name: 'Henry County Amateur Radio Society'
-  location: 'Henry County, GA'
-  grid_square: 'EM73vl'
+  callsign: 'KJ4KPY' # Your callsign or your clubs callsign
+  website: 'https://www.henrycountyars.org' # Your website address (including http:// or https://)
+  callsign_name: 'Henry County Amateur Radio Society' # Your name or your clubs name
+  location: 'Henry County, GA' # Your location
+  grid_square: 'EM73vl' # Your Gridsquare
 server:
-  port: 8080
-  host: 0.0.0.0
+  port: 8080 # What port do you want YAAM to listen on
+  host: 0.0.0.0 #What Ip Address do you way YAAM to listen on. use 0.0.0.0 for all IP addresses
 asterisk:
-  port: '5038'
-  host: '127.0.0.1'
-  username: 'admin'
-  password: 'xxxxx'
-  events: true
+  port: '5038' # Default asterisk port is 5038
+  host: '127.0.0.1' #Asterisk by default only accept connections from the same machine, i.e. 127.0.0.1
+  username: 'admin' # Default asterisk username is 'admin'
+  password: 'xxxxx' # Default asterisk password is 'xxxxx'
+  events: true # Leave this set to true
