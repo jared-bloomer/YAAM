@@ -2,3 +2,4 @@ node_modules
 logs/*
 data/dev.db3
 data/prod.db3
+data/*.db3-journal
