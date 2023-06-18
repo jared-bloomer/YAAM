@@ -1,3 +1,4 @@
 node_modules
 logs/*
 data/dev.db3
+data/prod.db3
