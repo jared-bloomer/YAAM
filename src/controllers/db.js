@@ -45,7 +45,6 @@ async function updateAstDB(req, res, next) {
                 var csv = result.split(/\r?\n/)
                 csv.forEach(line => {
                     var value = line.split('|')
-                    //console.log(value)
                     var query = db('astdb').insert([
                         {node_number: value[0], callsign: value[1], description: value[2], location: value[3]}
                     ])  

@@ -27,7 +27,6 @@ function initialize(passport, getUserCreds, getUserbyId) {
     }
     passport.use(new LocalStrategy({ usernameField: 'callsign'}, authenticateUser))
     passport.serializeUser((user, done) => { 
-        console.log(user.id)
         done(null, user.id)
     })
     passport.deserializeUser((id, done) => { 
