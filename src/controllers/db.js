@@ -69,7 +69,6 @@ async function hashPassword(password) {
 
 async function getAllUsers() {
     var query = await db('users').join('roles', 'users.role', '=', 'roles.id').select('users.callsign', 'roles.role', 'users.updated_at')
-    console.log(query)
     return query
 }
 
@@ -124,6 +123,11 @@ async function updateRole(req, res, next) {
     return next()
 }
 
+async function roleAuth(roleName, res, req, next) {
+        //const userRecord = await db('users').join('roles', 'users.role', '=', 'roles.id').select('users.callsign', 'roles.role').where('users.callsign', user ))
+        return next()
+}
+
 module.exports = {
     updateAstDB,
     getAllUsers,
@@ -137,5 +141,6 @@ module.exports = {
     addRole,
     delRole,
     updateRole,
-    hashPassword
+    hashPassword,
+    roleAuth
 }

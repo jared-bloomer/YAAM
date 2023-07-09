@@ -76,10 +76,10 @@ app.delete('/logout', function(req, res, next) {
     });
 });
 
-app.get("/users", checkAuthenticated, userManagementRouter);
-app.get("/users/list", checkAuthenticated, userManagementRouter);
-app.get("/users/add", checkAuthenticated, userManagementRouter);
-app.post("/users/add", checkAuthenticated, userManagementRouter);
+app.get("/users", checkAuthenticated, checkIsAdmin, userManagementRouter);
+app.get("/users/list", checkAuthenticated, checkIsAdmin, userManagementRouter);
+app.get("/users/add", checkAuthenticated, checkIsAdmin, userManagementRouter);
+app.post("/users/add", checkAuthenticated, checkIsAdmin, userManagementRouter);
 
 app.use(errorHandler);
 
@@ -96,6 +96,28 @@ function checkNotAuthenticated(req, res, next) {
         return res.redirect('/')
     }
     next()
+}
+
+function checkIsAdmin(req, res, next) {
+    let userData = req.user
+    userData.then(function(result) {
+        if (result[0].role == 1) { // 1 is the ID for admin role
+            next()
+        } else {
+            return res.redirect('/login')
+        }
+    })
+}
+
+function checkIsNetAdmin(req, res, next) {
+    let userData = req.user
+    userData.then(function(result) {
+        if (result[0].role === 2 || result[0].role === 1) { // 1 is the ID for admin role, 2 is the ID for net_admin role
+            next()
+        } else {
+            return res.redirect('/login')
+        }
+    })
 }
 
 app.listen(SERVER_PORT, SERVER_HOST, function () {
