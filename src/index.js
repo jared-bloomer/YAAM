@@ -7,18 +7,39 @@ const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const favicon = require('serve-favicon');
 const path = require('path');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
+const methodOverride = require('method-override')
+
 const db = require('./controllers/db');
 
 const SERVER_PORT = config.get('server.port');
 const SERVER_HOST = config.get('server.host');
 
 // Import Application Routes
+const initializePassport = require('./passport-config')
+initializePassport.initialize(
+  passport,
+  callsign => db.getUser(callsign),
+  id => users.find(user => user.id === id)
+)
+
 const homepage = require('./routes/homepage');
 const login = require('./routes/login');
 
 var app = express()
 app.use( express.static( "public" ) );
 app.use(express.urlencoded({ extended: false }))
+app.use(flash())
+app.use(session({
+    secret: config.get('salt_secret'),
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
 
 app.set('view engine', 'ejs'); // Use EJS Templating
 app.set('views', './views') // Define where Templates will live
@@ -36,6 +57,11 @@ db.updateAstDB();
 
 app.get("/", homepage);
 app.get("/login", login);
+app.post("/login", passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+}));
 
 app.use(errorHandler);
 
