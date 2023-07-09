@@ -4,7 +4,7 @@
     - [X] astdb table
     - [X] Add default admin user to users table
 - [X] Create DB Connection Middleware
-- [ ] Create passport-local middleware to authenticate from users table in Database
+- [X] Create passport-local middleware to authenticate from users table in Database
 - [ ] Establish persistent connection to asterisk
 - [ ] listen for all asterisk events
 - [ ] add Local URI entry to table on homepage
@@ -13,8 +13,8 @@
 - [ ] Remove call from table on homepage on hangup event
 - [X] Add favicon
 - [ ] Add jquery to live update resources
-- [ ] Create User Login Page
-- [ ] Create user session on Login (see passport-local)
+- [X] Create User Login Page
+- [X] Create user session on Login (see passport-local)
 - [ ] Create Admin page
     - [ ] Create User Management Page
     - [ ] Create update astdb tool
