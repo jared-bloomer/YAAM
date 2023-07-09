@@ -66,7 +66,6 @@ async function getAllUsers() {
 
 async function getUser(callsign) {
     var query = await db('users').select().where('callsign', callsign)
-    console.log(query)
     return query
 }
 
