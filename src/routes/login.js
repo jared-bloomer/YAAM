@@ -3,6 +3,7 @@ const router = express.Router()
 
 const config = require('config');
 const db = require('../controllers/login');
+const passport = require('passport');
 
 // Required for header
 const callsign = config.get('node.callsign');
@@ -30,19 +31,5 @@ router.get('/login', (req, res) => {
   });
 });
 
-router.post('/login', (req, res) => {
-  var un = req.body.username
-  var passwd = req.body.password
-  res.render('login', {
-    subject: 'This is the login page',
-    name: 'YAAM Login',
-    link: 'https://google.com',
-    callsign: callsign,
-    callsign_name: callsign_name,
-    website: website,
-    location: location,
-    grid_square: grid_square
-  });
-});
 
 module.exports = router
