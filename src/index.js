@@ -41,6 +41,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
 
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
+
 app.set('view engine', 'ejs'); // Use EJS Templating
 app.set('views', './views') // Define where Templates will live
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
@@ -62,8 +67,29 @@ app.post("/login", passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: true
 }));
+app.delete('/logout', function(req, res, next) {
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect('/');
+    });
+});
 
 app.use(errorHandler);
+
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next()
+    }
+  
+    res.redirect('/login')
+}
+  
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/')
+    }
+    next()
+}
 
 app.listen(SERVER_PORT, SERVER_HOST, function () {
     console.log(`Started application on ${SERVER_HOST}:${SERVER_PORT}`)
