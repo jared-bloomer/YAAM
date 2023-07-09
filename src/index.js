@@ -14,9 +14,11 @@ const SERVER_HOST = config.get('server.host');
 
 // Import Application Routes
 const homepage = require('./routes/homepage');
+const login = require('./routes/login');
 
 var app = express()
 app.use( express.static( "public" ) );
+app.use(express.urlencoded({ extended: false }))
 
 app.set('view engine', 'ejs'); // Use EJS Templating
 app.set('views', './views') // Define where Templates will live
@@ -30,9 +32,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json()); // Add body-parser to app object
 app.use(cookieParser()); // Activate use of cookies
 
-db.getAllUsers();
+db.updateAstDB();
 
-app.get("/", homepage)
+app.get("/", homepage);
+app.get("/login", login);
 
 app.use(errorHandler);
 
