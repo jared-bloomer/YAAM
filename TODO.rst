@@ -18,6 +18,10 @@
 - [ ] Create Admin page
     - [ ] Create User Management Page
         - [X] List All Users
+        - [ ] Add User
+        - [ ] Delete User
+        - [ ] Reset User Password
+        - [ ] Update User Roles
     - [ ] Create update astdb tool
     - [ ] Manage favorites
     - [ ] View Live Logs Tool
