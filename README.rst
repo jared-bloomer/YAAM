@@ -59,6 +59,7 @@ ____________________________________________________________________
 * http
 * express-session
 * express-flash
+* method-override
 
 
 Installation
