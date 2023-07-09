@@ -69,6 +69,11 @@ async function getUser(callsign) {
     return query
 }
 
+async function getUserByID(id) {
+    var query = await db('users').select().where('id', id)
+    return query
+}
+
 async function addUser(req, res, next) {
     return next()
 }
@@ -102,6 +107,7 @@ module.exports = {
     updateAstDB,
     getAllUsers,
     getUser,
+    getUserByID,
     addUser,
     delUser,
     updateUserRole,
