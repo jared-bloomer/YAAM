@@ -58,8 +58,18 @@ async function updateAstDB(req, res, next) {
     }
 }
 
+async function hashPassword(password) {
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10)
+        return hashedPassword
+    } catch (e) {
+        return e;
+    }
+}
+
 async function getAllUsers() {
     var query = await db('users').join('roles', 'users.role', '=', 'roles.id').select('users.callsign', 'roles.role', 'users.updated_at')
+    console.log(query)
     return query
 }
 
@@ -73,8 +83,15 @@ async function getUserByID(id) {
     return query
 }
 
-async function addUser(req, res, next) {
-    return next()
+async function addUser(callsign, password, role) {
+    const exist = await getUser(callsign)
+    if (exist.length == 0) {
+        var userRole = await getRoleByName(role)
+        var query = await db('users').join('roles', 'roles.role', '=', role).insert({callsign: callsign, password: password, role: userRole[0].id})
+        return query
+    } else {
+        return { error: "Callsign already exist!"}
+    }
 }
 
 async function delUser(req, res, next) {
@@ -87,6 +104,11 @@ async function updateUserRole(req, res, next) {
 
 async function getAllRoles(req, res, next) {
     var query = await db('roles').select()
+    return query
+}
+
+async function getRoleByName(role) {
+    var query = await db('roles').select("id").where('role', role)
     return query
 }
 
@@ -111,7 +133,9 @@ module.exports = {
     delUser,
     updateUserRole,
     getAllRoles,
+    getRoleByName,
     addRole,
     delRole,
-    updateRole
+    updateRole,
+    hashPassword
 }

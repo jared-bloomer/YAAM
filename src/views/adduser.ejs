@@ -9,8 +9,8 @@
                             <%= messages.error %>
                         </div>
                     <% } %>
-                    <h2>Login</h2>
-                    <form action="/login" method="POST">
+                    <h2>Add User</h2>
+                    <form action="/users/add" method="POST">
                         <div class="form-group">
                             <label for="callsign">Callsign</label>
                             <input type="text" id="callsign" name="callsign" required>
@@ -19,7 +19,15 @@
                             <label for="password">Password</label>
                             <input type="password" id="password" name="password" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div class="form-group">
+                            <label for="role">User Role</label>
+                            <select id="role" name="role">
+                                <% for(var i=0; i < getRoles.length; i++) { %>
+                                    <option value="<%= getRoles[i].role %>"><%= getRoles[i].role %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add User</button>
                     </form>
                     <br />
                 </div>

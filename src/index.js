@@ -22,7 +22,7 @@ const initializePassport = require('./passport-config')
 initializePassport.initialize(
   passport,
   callsign => db.getUser(callsign),
-  id => users.find(user => user.id === id)
+  id => db.getUserByID(id)
 )
 
 var app = express()
@@ -76,8 +76,10 @@ app.delete('/logout', function(req, res, next) {
     });
 });
 
-app.get("/users", userManagementRouter);
-app.get("/users/list", userManagementRouter);
+app.get("/users", checkAuthenticated, userManagementRouter);
+app.get("/users/list", checkAuthenticated, userManagementRouter);
+app.get("/users/add", checkAuthenticated, userManagementRouter);
+app.post("/users/add", checkAuthenticated, userManagementRouter);
 
 app.use(errorHandler);
 

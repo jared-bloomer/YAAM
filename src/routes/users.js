@@ -38,5 +38,38 @@ router.get('/users/list', async function (req, res, next) {
   });
 });
 
+router.get('/users/add', async function (req, res, next) {
+    res.locals.allRoles = await db.getAllRoles();
+    res.render('adduser', {
+        subject: 'This is the user management portal',
+        name: 'YAAM Users',
+        link: 'https://google.com',
+        callsign: callsign,
+        callsign_name: callsign_name,
+        website: website,
+        location: location,
+        grid_square: grid_square,
+        getRoles: res.locals.allRoles
+    });
+});
+
+router.post('/users/add', async function (req, res, next) {
+    const formData = req.body
+    const { callsign, password, role } = formData
+    const hashedPasswd = await db.hashPassword(password)
+    const insert = await db.addUser(callsign, hashedPasswd, role)
+    if (insert.error) {
+        req.flash('error', `Callsign already exist!`);
+        res.redirect('/users/add');
+    } else {
+        try {
+            next()
+        } catch (e) {
+            res.status(500).send();
+        }
+        res.redirect('/users/list');
+    }
+
+});
 
 module.exports = router
