@@ -59,7 +59,7 @@ async function updateAstDB(req, res, next) {
 }
 
 async function getAllUsers() {
-    var query = await db('users').select()
+    var query = await db('users').join('roles', 'users.role', '=', 'roles.id').select('users.callsign', 'roles.role', 'users.updated_at')
     return query
 }
 

@@ -17,6 +17,7 @@
 - [X] Create user session on Login (see passport-local)
 - [ ] Create Admin page
     - [ ] Create User Management Page
+        - [X] List All Users
     - [ ] Create update astdb tool
     - [ ] Manage favorites
     - [ ] View Live Logs Tool

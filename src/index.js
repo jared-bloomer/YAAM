@@ -25,9 +25,6 @@ initializePassport.initialize(
   id => users.find(user => user.id === id)
 )
 
-const homepage = require('./routes/homepage');
-const login = require('./routes/login');
-
 var app = express()
 app.use( express.static( "public" ) );
 app.use(express.urlencoded({ extended: false }))
@@ -58,10 +55,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json()); // Add body-parser to app object
 app.use(cookieParser()); // Activate use of cookies
 
-db.updateAstDB();
+//db.updateAstDB();
 
-app.get("/", homepage);
-app.get("/login", login);
+// Import Routes
+const homepageRouter = require('./routes/homepage');
+const loginRouter = require('./routes/login');
+const userManagementRouter = require('./routes/users');
+
+app.get("/", homepageRouter);
+app.get("/login", loginRouter);
 app.post("/login", passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
@@ -73,6 +75,9 @@ app.delete('/logout', function(req, res, next) {
       res.redirect('/');
     });
 });
+
+app.get("/users", userManagementRouter);
+app.get("/users/list", userManagementRouter);
 
 app.use(errorHandler);
 
