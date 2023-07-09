@@ -6,7 +6,11 @@ const fsPromises = require('fs').promises;
 const path = require('path');
 
 const logEvents = async (message, logName, req) => {
-    const ip = req.ip
+    if (req) {
+        var ip = req.ip
+    } else {
+        var ip = null
+    }
     const dateTime = `${format(new Date(), 'yyyyMMdd\tHH:mm:ss')}`;
     const logItem = `${dateTime}\t${uuid()}\t${ip}\t${message}\n`;
 
