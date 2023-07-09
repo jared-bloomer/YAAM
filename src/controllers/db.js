@@ -64,6 +64,12 @@ async function getAllUsers() {
     return query
 }
 
+async function getUser(callsign) {
+    var query = await db('users').select().where('callsign', callsign)
+    console.log(query)
+    return query
+}
+
 async function addUser(req, res, next) {
     return next()
 }
@@ -96,6 +102,7 @@ async function updateRole(req, res, next) {
 module.exports = {
     updateAstDB,
     getAllUsers,
+    getUser,
     addUser,
     delUser,
     updateUserRole,
