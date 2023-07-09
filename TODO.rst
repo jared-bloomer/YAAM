@@ -20,6 +20,6 @@
     - [ ] Create update astdb tool
     - [ ] Manage favorites
     - [ ] View Live Logs Tool
-    - [ ] Create Linking Groups (predefined links to connect to at the same time)
+    - [ ] Create Node Linking Groups (predefined links to connect to at the same time)
     - [ ] Create Button to update astdb Table in Database
 - [X] Create method to update astdb Database Table
