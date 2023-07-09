@@ -57,6 +57,8 @@ ____________________________________________________________________
 * sqlite3
 * bcrypt
 * http
+* express-session
+* express-flash
 
 
 Installation
